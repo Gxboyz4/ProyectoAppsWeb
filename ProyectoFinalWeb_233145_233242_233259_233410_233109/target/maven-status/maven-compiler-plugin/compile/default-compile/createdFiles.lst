@@ -1,7 +1,13 @@
 Controlador\Consultas.class
 org\itson\practicalogin233410\JakartaRestConfiguration.class
+Modelo\ModeloProducto.class
 org\itson\practicalogin233410\resources\JakartaEE91Resource.class
 Controlador\Conexion.class
 servlet\RegistrarUsuarios.class
 Controlador\Main.class
+servlet\AddCart.class
+Controlador\ControladorProducto.class
+Modelo\Producto.class
 servlet\InicioSesion.class
+Modelo\Articulo.class
+.netbeans_automatic_build

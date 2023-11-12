@@ -2948,12 +2948,7 @@ textarea.form-control-lg {
   pointer-events: none;
 }
 
-.btn-check[disabled] + .btn, .btn-check:disabled + .btn {
-  pointer-events: none;
-  -webkit-filter: none;
-  filter: none;
-  opacity: 0.65;
-}
+
 
 .form-range {
   width: 100%;

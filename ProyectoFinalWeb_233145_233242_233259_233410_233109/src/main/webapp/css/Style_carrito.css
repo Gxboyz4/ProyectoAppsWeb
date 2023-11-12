@@ -1,0 +1,48 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 nov 2023, 21:32:11
+    Author     : julio
+*/
+body {
+    background-color: #FFFFFF;
+}
+
+.navbar {
+    background-color: #FFFFFF;
+}
+
+.card {
+    background-color: #EEEEEE;
+}
+
+.card-header {
+    background-color: #FFE093;
+    color: #000000;
+}
+
+.btn-pagar,
+.btn-default {
+    background-color: #FFE093;
+    color: #000000;
+}
+
+.btn-pagar:hover,
+.btn-default:hover {
+    font-weight: bold;
+}
+
+.cart_quantity_delete,
+.cart_quantity_up,
+.cart_quantity_down {
+    color: #000000;
+}
+
+.cart_quantity_delete:hover,
+.cart_quantity_up:hover,
+.cart_quantity_down:hover  {
+    font-weight: bold ; 
+}
+
