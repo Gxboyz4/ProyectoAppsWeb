@@ -4154,6 +4154,10 @@ fieldset:disabled .btn {
   transition: height 0.35s ease;
 }
 
+.btn-pagar:hover,
+.btn-default:hover {
+    font-weight: bold;
+}
 @media (prefers-reduced-motion: reduce) {
   .collapsing {
     -webkit-transition: none;

@@ -8,29 +8,41 @@
 <%@page import="Modelo.Producto"%>
 <%@page import="Modelo.Articulo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-
-              lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-       
-        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         
+        <!--Titulo del documento-->
+        <title>Carrito</title>
+
+        <!--Favicons-->
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicons/favicon.ico">
+        <link rel="manifest" href="img/favicons/manifest.json">
+        <meta name="msapplication-TileImage" content="img/favicons/mstile-150x150.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <!--Hojas de estilo-->
         <link href="css/Style_carrito.css" rel="stylesheet" />
         <link href="css/theme.css" rel="stylesheet" />
-        <title>JSP Page</title>
-        
+
+
     </head>
-    <body style="margin-top: 150px;">
+
+
+    <body style="margin-top: 100px;">
+        <!--Contenido-->
+
+        <main class="main" id="top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand d-inline-flex" href="principal.html">
+                    <a class="navbar-brand d-inline-flex" href="principal.jsp">
                         <img class="d-inline-block" src="img/gallery/logo.svg" alt="logo" />
                         <span class="text-1000 fs-3 fw-bold ms-2 text-gradient">Dogos el Carballo</span>
                     </a>
@@ -44,7 +56,7 @@
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
                             <button class="btn btn-white shadow-warning text-warning" type="submit">Admin</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.html'">Acerca de</button>
+                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
                             <button class="btn btn-white shadow-warning text-warning" type="submit">Contacto</button>
                             <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
                             <button class="btn btn-white shadow-warning text-warning" type="submit"><i class="fas fa-user"></i></button>
@@ -53,7 +65,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid">
+           <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="table-responsive cart_info" id="cart-container">
@@ -120,12 +132,28 @@
                                 </table>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-default update" href=""><i class="fa fa-shopping-cart"></i>Actualizar</a>
-                                <a class="btn btn-default check_out" href=""><i class="fa fa-shopping-cart"></i>Pagar</a>
+                                <a class="btn btn-default update" class="btn-pagar" href=""><i class="fa fa-shopping-cart"></i>Actualizar</a>
+                                <a class="btn btn-default check_out" class="btn-pagar" href=""><i class="fa fa-shopping-cart"></i>Pagar</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+        </main>
+        <!--Final del contenido-->
+
+        <!--JavaScripts-->
+        <script src="vendors/@popperjs/popper.min.js"></script>
+        <script src="vendors/bootstrap/bootstrap.min.js"></script>
+        <script src="vendors/is/is.min.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+        <script src="vendors/fontawesome/all.min.js"></script>
+        <script src="js/theme.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
     </body>
+
 </html>

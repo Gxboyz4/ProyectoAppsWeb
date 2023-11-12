@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-
+<html lang="es" dir="ltr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,16 +39,16 @@
                     </button>
                     <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
                         <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
-                            <p class="mb-0 fw-bold text-lg-center">UbicaciÃ³n: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad ObregÃ³n, Sonora, 
+                            <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
-                            <button class="btn btn-white shadow-warning text-warning" type="submit">Admin</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.html'">Acerca de</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit">Contacto</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit"><i class="fas fa-user"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit"> <i class="fas fa-sign-out-alt"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit">Admin</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit">Contacto</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
                         </form>
                     </div>
                 </div>
@@ -59,8 +58,8 @@
                     <div class="row flex-center">
                         <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="img-landing-banner" href="#!"><img class="img-fluid" src="img/gallery/dogueate.png" alt="hero-header" /></a></div>
                         <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
-                            <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">Â¿Tienes hambre?</h1>
-                            <h1 class="text-800 mb-5 fs-4">Â¡DOGUEATE!<br class="d-none d-xxl-block" /></h1>
+                            <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">¿Tienes hambre?</h1>
+                            <h1 class="text-800 mb-5 fs-4">¡DOGUEATE!<br class="d-none d-xxl-block" /></h1>
                         </div>
                     </div>
                 </div>
@@ -88,7 +87,7 @@
                                                 </div>
                                                 <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
                                             </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
+                                            <!--Inicio del div -->  <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
                                                 <div class="card card-span h-100 rounded-3">
                                                     <img class="img-fluid rounded-3 h-100" src="img/gallery/dogo_embarazado.png" alt="..." />
                                                     <div class="card-body ps-0">
@@ -187,7 +186,7 @@
                                             <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
                                                 <div class="card card-span h-100 rounded-3"><img class="img-fluid rounded-3 h-100" src="img/gallery/Te.png" alt="..." />
                                                     <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">TÃ©</h5>
+                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Té</h5>
                                                         <span class="text-1000 fw-bold">$15.00</span>
                                                     </div>
                                                 </div>
@@ -217,7 +216,7 @@
                                         <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-0 order-md-1"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-end rounded-md-top-0" src="img/gallery/dogo_prueba.png" alt="..." /></div>
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
                                             <h1 class="card-title mt-xl-5 mb-4">Prueba nuestros ricos<span class="text-primary"> Hot Dogs</span></h1>
-                                            <p class="fs-1">Disfruta de su preciso tamaÃ±o no podrÃ¡s acabÃ¡rtelo.</p>
+                                            <p class="fs-1">Disfruta de su preciso tamaño, no podrás acabártelo.</p>
                                             <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>

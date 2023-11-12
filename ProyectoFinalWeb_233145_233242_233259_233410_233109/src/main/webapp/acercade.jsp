@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
+<html lang="es" dir="ltr">
 
     <head>
         <meta charset="utf-8">
@@ -31,7 +31,7 @@
         <main class="main" id="top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand d-inline-flex" href="principal.html">
+                    <a class="navbar-brand d-inline-flex" href="principal.jsp">
                         <img class="d-inline-block" src="img/gallery/logo.svg" alt="logo" />
                         <span class="text-1000 fs-3 fw-bold ms-2 text-gradient">Dogos el Carballo</span>
                     </a>
@@ -40,12 +40,12 @@
                     </button>
                     <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
                         <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
-                            <p class="mb-0 fw-bold text-lg-center">UbicaciÃ³n: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad ObregÃ³n, Sonora, 
+                            <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
                             <button class="btn btn-white shadow-warning text-warning" type="submit">Admin</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.html'">Acerca de</button>
+                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
                             <button class="btn btn-white shadow-warning text-warning" type="submit">Contacto</button>
                             <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
                             <button class="btn btn-white shadow-warning text-warning" type="submit"><i class="fas fa-user"></i></button>
