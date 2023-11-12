@@ -17,7 +17,7 @@ public class Main {
         Conexion conexion = new Conexion();
         System.out.println(conexion.getConexion());
         Consultas consultas = new Consultas();
-       System.out.println(consultas.registrar("Gabriel","123"));
+        System.out.println(consultas.registrar("Gabriel Mancinas","Gxboyz", "mancinas@gmail.com","luispablo11"));
         
      }
     

@@ -29,7 +29,7 @@ public class Consultas {
         ResultSet rs = null;
         try {
             
-            String consulta = "select * from usuarios where nombre=? and pass=?";
+            String consulta = "select * from usuarios where correo=? and password=?";
             System.out.println("Consulta en " + consulta);
             pst = getConexion().prepareStatement(consulta);
             
@@ -58,13 +58,15 @@ public class Consultas {
 
         return false;
     }
-    public boolean registrar(String usuario,String clave){
+    public boolean registrar(String nombre,String usuario, String correo, String password){
         PreparedStatement pst=null;
         try{
-            String consulta="INSERT INTO usuarios (nombre, pass) VALUES (?, ?)";
-             pst = getConexion().prepareStatement(consulta);
-            pst.setString(1, usuario);
-            pst.setString(2, clave);
+           String consulta="INSERT INTO usuarios (nombre, usuario,correo,password) VALUES (?, ?, ?, ?)";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, nombre);
+            pst.setString(2, usuario);
+            pst.setString(3, correo);
+            pst.setString(4, password);
             if(pst.executeUpdate()==1){
                 return true;
             }

@@ -15,11 +15,11 @@ import java.util.logging.Logger;
  */
 public class Conexion {
     
-    private String USERNAME ="gab";
-    private String PASSWORD = "12345";
+    private String USERNAME = "mario";
+    private String PASSWORD = "mario";
     private String HOST = "localhost";
     private String PORT = "3306";
-    private String DATABASE = "sistema";
+    private String DATABASE = "hotdogs";
     private String CLASSNAME = "com.mysql.cj.jdbc.Driver";
     private String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
     private Connection con;

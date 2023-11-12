@@ -17,11 +17,11 @@ Author     : Ángel ñ
             <div class="form">
                 <img src="img/favicons/Carballo Dogos.png" alt="Logo" class="logo">
                 <form action="nuevousuario" method="post">
-                    <input type="text" placeholder="Nombre" required>
-                    <input type="text" placeholder="Usuario" required>
-                    <input type="email" placeholder="Correo Electrónico" required>
-                    <input type="password" placeholder="Contraseña" required>
-                    <input type="password" placeholder="Confirmar Contraseña" required>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="usuario" placeholder="Usuario" required>
+                    <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" name="password2" placeholder="Confirmar Contraseña" required>
                     <button type="submit" onclick="window.location.href = 'index.jsp'">Registrarse</button>
                     <p class="message">¿Ya tienes una cuenta? <a href="login.jsp">Inicia Sesión</a></p>
                 </form>

@@ -1,6 +1,6 @@
 /*
 Clase InicioSesion.java creada el 05/11/2023.
-*/
+ */
 package servlet;
 
 import Controlador.Consultas;
@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 
 /**
  *
@@ -34,17 +33,17 @@ public class InicioSesion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            String usuario=request.getParameter("usuario");
-            String clave = request.getParameter("pass");
-            Consultas sql=new Consultas();
-            System.out.println("Estoy en el servlet"+usuario+": "+clave);
-            if(sql.autenticacion(usuario, clave)){
+        String correo = request.getParameter("correo");
+        String clave = request.getParameter("password");
+        Consultas sql = new Consultas();
+        System.out.println("Estoy en el servlet" + correo + ": " + clave);
+        if (sql.autenticacion(correo, clave)) {
             HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("usuario", usuario);
-                response.sendRedirect("menu.jsp");
-            }else{
-                response.sendRedirect("index.jsp");
-            
+            objSesion.setAttribute("usuario", correo);
+            response.sendRedirect("principal.html");
+        } else {
+            response.sendRedirect("index.jsp");
+
         }
     }
 

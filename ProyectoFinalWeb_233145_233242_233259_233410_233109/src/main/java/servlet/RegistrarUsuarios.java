@@ -34,11 +34,13 @@ public class RegistrarUsuarios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
        //Variables del formulario    
+        String nombre = request.getParameter("nombre");
         String usuario = request.getParameter("usuario");
-        String clave = request.getParameter("pass");
+        String correo = request.getParameter("correo");
+        String password = request.getParameter("password");
         
         Consultas sql=new Consultas();
-        if(sql.registrar(usuario, clave)){
+        if(sql.registrar(nombre, usuario,correo,password)){
             response.sendRedirect("index.jsp");
         }else{
             response.sendRedirect("registro.jsp");

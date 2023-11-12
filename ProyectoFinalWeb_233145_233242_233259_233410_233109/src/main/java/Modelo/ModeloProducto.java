@@ -32,8 +32,9 @@ public class ModeloProducto extends Conexion{
             rs = pst.executeQuery();
             while(rs.next()){
                
-                productos.add(new Producto(rs.getInt("id_producto"), rs.getString("nombre"),
-                        rs.getString("img_producto"),rs.getDouble("precio"),rs.getInt("stock")));
+                productos.add(new Producto(rs.getInt("id"), rs.getString("nombre"),
+                        rs.getString("img_producto"),rs.getDouble("precio"),
+                        rs.getInt("stock"), rs.getString("descripcion")));
             }
         }catch(Exception ex){
             System.out.println("Error en: "+ex);
@@ -67,8 +68,9 @@ public class ModeloProducto extends Conexion{
             pst.setInt(1, id);
             rs = pst.executeQuery();
             while(rs.next()){
-                producto = new Producto(rs.getInt("id_producto"), rs.getString("nombre"),
-                        rs.getString("img_producto"),rs.getDouble("precio"),rs.getInt("stock"));
+                producto = new Producto(rs.getInt("id"), rs.getString("nombre"),
+                        rs.getString("img_producto"),rs.getDouble("precio"),
+                        rs.getInt("stock"), rs.getString("descripcion"));
             }
         }catch(Exception ex){
             System.out.println("Error en: "+ex);
