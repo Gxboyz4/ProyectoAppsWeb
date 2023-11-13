@@ -1,6 +1,6 @@
 /*
 Clase RegistrarUsuarios.java creada el 05/11/2023.
-*/
+ */
 package servlet;
 
 import Controlador.Consultas;
@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 
 /**
  *
@@ -32,21 +31,30 @@ public class RegistrarUsuarios extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       PrintWriter out = response.getWriter();
-       //Variables del formulario    
+        PrintWriter out = response.getWriter();
+        //Variables del formulario    
         String nombre = request.getParameter("nombre");
         String usuario = request.getParameter("usuario");
         String correo = request.getParameter("correo");
         String password = request.getParameter("password");
-        
-        Consultas sql=new Consultas();
-        if(sql.registrar(nombre, usuario,correo,password)){
-            response.sendRedirect("index.jsp");
-        }else{
-            response.sendRedirect("registro.jsp");
+        String password2 = request.getParameter("password2");
+
+        if (password.equals(password2)) {
+            Consultas sql = new Consultas();
+            if (sql.registrar(nombre, usuario, correo, password)) {
+                response.sendRedirect("index.jsp");
+            } else {
+                response.sendRedirect("registro.jsp");
+            }
+        } else {
+            // Mostrar una alerta de que las contraseñas no son iguales
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Las contraseñas no son iguales');");
+            out.println("window.location='registro.jsp';");
+            out.println("</script>");
         }
     }
-   
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
