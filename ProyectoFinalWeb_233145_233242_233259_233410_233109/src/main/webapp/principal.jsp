@@ -1,3 +1,20 @@
+<%-- 
+    Document   : cart
+    Created on : 05 nov 2023, 17:25:10
+    Author     : Gabriel Mancinas
+--%>
+<%@page import="Controlador.ControladorProducto"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% HttpSession objSesion=request.getSession(false);
+String usuario = (String)objSesion.getAttribute("usuario");
+if(usuario.equals("")){
+response.sendRedirect("index.jsp");
+    }
+    %>
+
+<%
+  ControladorProducto cp = new ControladorProducto();
+%>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
     <head>
@@ -39,7 +56,7 @@
                     </button>
                     <div class="collapse navbar-collapse border-top border-lg-0 my-2 mt-lg-0" id="navbarSupportedContent">
                         <div class="mx-auto pt-5 pt-lg-0 d-block d-lg-none d-xl-block">
-                            <p class="mb-0 fw-bold text-lg-center">Ubicaci�n: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obreg�n, Sonora, 
+                            <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
@@ -58,8 +75,8 @@
                     <div class="row flex-center">
                         <div class="col-md-5 col-lg-6 order-0 order-md-1 mt-8 mt-md-0"><a class="img-landing-banner" href="#!"><img class="img-fluid" src="img/gallery/dogueate.png" alt="hero-header" /></a></div>
                         <div class="col-md-7 col-lg-6 py-8 text-md-start text-center">
-                            <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">�Tienes hambre?</h1>
-                            <h1 class="text-800 mb-5 fs-4">�DOGUEATE!<br class="d-none d-xxl-block" /></h1>
+                            <h1 class="display-1 fs-md-5 fs-lg-6 fs-xl-8 text-light">¿Tienes hambre?</h1>
+                            <h1 class="text-800 mb-5 fs-4">¡DOGUEATE!<br class="d-none d-xxl-block" /></h1>
                         </div>
                     </div>
                 </div>
@@ -77,56 +94,7 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-bs-interval="10000">
                                         <div class="row gx-3 h-100 align-items-center">
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3">
-                                                    <img class="img-fluid rounded-3 h-100" src="img/gallery/dogo_chiledogo.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Chile-Dogo</h5>
-                                                        <span class="text-1000 fw-bold">$35.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <!--Inicio del div -->  <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3">
-                                                    <img class="img-fluid rounded-3 h-100" src="img/gallery/dogo_embarazado.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Embarazado</h5>
-                                                        <span class="text-1000 fw-bold">$45.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3">
-                                                    <img class="img-fluid rounded-3 h-100" src="img/gallery/dogo_quesidogo.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Quesi-Dogo</h5>
-                                                        <span class="text-1000 fw-bold">$60.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3">
-                                                    <img class="img-fluid rounded-3 h-100" src="img/gallery/dogo_jumbo.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Jumbo</h5>
-                                                        <span class="text-1000 fw-bold">$50.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3">
-                                                    <img class="img-fluid rounded-3 h-100" src="img/gallery/thai-soup.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Sencillo</h5>
-                                                        <span class="text-1000 fw-bold">$25.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
+                                            <%=cp.getProductosDogos()%>
                                         </div>
                                     </div>
                                 </div>
@@ -156,43 +124,7 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-bs-interval="10000">
                                         <div class="row gx-3 h-100 align-items-center">
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3"><img class="img-fluid rounded-3 h-100" src="img/gallery/cocacola.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Coca Cola 600ml</h5>
-                                                        <span class="text-1000 fw-bold">$20.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3"><img class="img-fluid rounded-3 h-100" src="img/gallery/jamaica.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Jamaica</h5>
-                                                        <span class="text-1000 fw-bold">$15.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3"><img class="img-fluid rounded-3 h-100" src="img/gallery/horchata.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">Horchata</h5>
-                                                        <span class="text-1000 fw-bold">$15.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-                                            <div class="col-sm-6 col-md-4 col-xl mb-5 h-100">
-                                                <div class="card card-span h-100 rounded-3"><img class="img-fluid rounded-3 h-100" src="img/gallery/Te.png" alt="..." />
-                                                    <div class="card-body ps-0">
-                                                        <h5 class="fw-bold text-1000 text-truncate mb-1">T�</h5>
-                                                        <span class="text-1000 fw-bold">$15.00</span>
-                                                    </div>
-                                                </div>
-                                                <div class="d-grid gap-2"><a class="btn btn-lg btn-danger" href="#!" role="button">Comprar</a></div>
-                                            </div>
-
+                                            <%=cp.getProductosBebidas()%>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +148,7 @@
                                         <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-0 order-md-1"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-end rounded-md-top-0" src="img/gallery/dogo_prueba.png" alt="..." /></div>
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
                                             <h1 class="card-title mt-xl-5 mb-4">Prueba nuestros ricos<span class="text-primary"> Hot Dogs</span></h1>
-                                            <p class="fs-1">Disfruta de su preciso tama�o, no podr�s acab�rtelo.</p>
+                                            <p class="fs-1">Disfruta de su preciso tamaño, no podrás acabártelo.</p>
                                             <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>
@@ -240,8 +172,8 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0" src="img/gallery/aguas_frescas.png" alt="..." /></div>
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                                            <h1 class="card-title mt-xl-5 mb-4">Para esos días calurosos, están nuestras <span class="text-primary">Aguas Frescas</span></h1>
-                                            <p class="fs-1">Te encantará su rico sabor casero.</p>
+                                            <h1 class="card-title mt-xl-5 mb-4">Para esos dÃ­as calurosos, estÃ¡n nuestras <span class="text-primary">Aguas Frescas</span></h1>
+                                            <p class="fs-1">Te encantarÃ¡ su rico sabor casero.</p>
                                             <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>
@@ -262,7 +194,7 @@
                     <div class="row">
 
                         <div class="col-12 col-md-8 col-lg-6 col-xxl-4">
-                            <h5 class="lh-lg fw-bold text-500">Síguenos</h5>
+                            <h5 class="lh-lg fw-bold text-500">SÃ­guenos</h5>
                             <div class="text-start my-3">
                                 <a href="https://www.facebook.com/people/Hot-Dogs-El-Carballo/100070784457086/">
                                     <svg class="svg-inline--fa fa-facebook fa-w-16 fs-2 mx-2" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" viewBox="0 0 512 512">
