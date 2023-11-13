@@ -1,8 +1,12 @@
+servlet\ModificarUsuario.class
 Controlador\Consultas.class
 org\itson\practicalogin233410\JakartaRestConfiguration.class
+Modelo\ModeloUsuario.class
 Modelo\ModeloProducto.class
+Modelo\Usuario.class
 org\itson\practicalogin233410\resources\JakartaEE91Resource.class
 servlet\ModificarProducto.class
+Controlador\ControladorUsuario.class
 Controlador\Conexion.class
 servlet\EliminarProducto.class
 servlet\RegistrarUsuarios.class
@@ -13,3 +17,4 @@ Controlador\ControladorProducto.class
 Modelo\Producto.class
 servlet\InicioSesion.class
 Modelo\Articulo.class
+servlet\EliminarUsuario.class
