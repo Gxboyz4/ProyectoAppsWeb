@@ -6,7 +6,9 @@ package servlet;
 
 import Modelo.ModeloProducto;
 import Modelo.Producto;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,10 +17,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Ángel ñ
+ * @author mario
  */
-@WebServlet(name = "AgregarAlimento", urlPatterns = {"/agregaralimento"})
-public class AgregarAlimento extends HttpServlet {
+public class ModificarProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,16 +34,19 @@ public class AgregarAlimento extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         // Variables del formulario
+        
         String nombre = request.getParameter("nombre");
         String img = request.getParameter("img");
         double precio = Double.parseDouble(request.getParameter("precio"));
         int stock = Integer.parseInt(request.getParameter("stock"));
         String descripcion = request.getParameter("descripcion");
+        int identificadorProducto = Integer.parseInt(request.getParameter("identificador"));
         String categoria = request.getParameter("categoria");
         
         ModeloProducto mp = new ModeloProducto();
-        mp.agregarProducto(new Producto(nombre, img, precio, stock, descripcion, categoria));
-        System.out.println("Producto agregado "+nombre);
+        
+        mp.actualizarProducto(identificadorProducto, nombre, precio, descripcion, categoria, img, stock);
+        System.out.println("Producto actualizado "+nombre);
         response.sendRedirect("productos_adm.jsp");
     }
 

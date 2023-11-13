@@ -76,17 +76,21 @@ public class ModeloProducto extends Conexion {
         }
     }
 
-    public void actualizarProducto(int productoId, String nuevoNombre, double nuevoPrecio, String nuevaDescripcion) {
+    public void actualizarProducto(int productoId, String nuevoNombre, double nuevoPrecio,
+            String nuevaDescripcion, String nuevaCategoria, String nuevaImagen, int nuevoStock) {
         CallableStatement cstmt = null;
 
         try {
-            String sql = "call actualizarAlimento(?, ?, ?, ?)";
+            String sql = "call actualizarAlimento(?, ?, ?, ?, ?, ?, ?)";
             cstmt = getConexion().prepareCall(sql);
 
             cstmt.setInt(1, productoId);
             cstmt.setString(2, nuevoNombre);
             cstmt.setDouble(3, nuevoPrecio);
             cstmt.setString(4, nuevaDescripcion);
+            cstmt.setString(5, nuevaCategoria);
+            cstmt.setString(6, nuevaImagen);
+            cstmt.setInt(7, nuevoStock);
 
             cstmt.executeUpdate();
         } catch (SQLException ex) {
@@ -110,7 +114,7 @@ public class ModeloProducto extends Conexion {
         ResultSet rs = null;
 
         try {
-            String sql = "call selectProductos()";
+            String sql = "call hotdogs.selectProductos()";
             pst = getConexion().prepareCall(sql);
             rs = pst.executeQuery();
             while (rs.next()) {

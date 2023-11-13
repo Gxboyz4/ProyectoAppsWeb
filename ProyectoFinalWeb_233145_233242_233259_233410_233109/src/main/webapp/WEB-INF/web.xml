@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
-   version="5.0">
+<web-app version="5.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
     <servlet>
-        <servlet-name>InicioSesion></servlet-name>
-        <servlet-class>servlet.InicioSesion></servlet-class>
+        <servlet-name>InicioSesion&gt;</servlet-name>
+        <servlet-class>servlet.InicioSesion&gt;</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarProducto</servlet-name>
+        <servlet-class>servlet.EliminarProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarProducto</servlet-name>
+        <servlet-class>servlet.ModificarProducto</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>InicioSesion></servlet-name>
-        <url-pattern>/iniciar></url-pattern>
+        <servlet-name>InicioSesion&gt;</servlet-name>
+        <url-pattern>/iniciar&gt;</url-pattern>
     </servlet-mapping>
-    
-    
+    <servlet-mapping>
+        <servlet-name>EliminarProducto</servlet-name>
+        <url-pattern>/eliminarproducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarProducto</servlet-name>
+        <url-pattern>/modificarproducto</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

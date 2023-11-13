@@ -2,7 +2,9 @@ Controlador\Consultas.class
 org\itson\practicalogin233410\JakartaRestConfiguration.class
 Modelo\ModeloProducto.class
 org\itson\practicalogin233410\resources\JakartaEE91Resource.class
+servlet\ModificarProducto.class
 Controlador\Conexion.class
+servlet\EliminarProducto.class
 servlet\RegistrarUsuarios.class
 Controlador\Main.class
 servlet\AddCart.class
@@ -10,5 +12,4 @@ servlet\AgregarAlimento.class
 Controlador\ControladorProducto.class
 Modelo\Producto.class
 servlet\InicioSesion.class
-servlet\AgregarProducto.class
 Modelo\Articulo.class
