@@ -6,7 +6,7 @@ Author     : Ángel ñ
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<htm1>
+<html lang="es" dir="ltr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar</title>
@@ -22,7 +22,7 @@ Author     : Ángel ñ
                     <input type="email" name="correo" placeholder="Correo Electrónico" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <input type="password" name="password2" placeholder="Confirmar Contraseña" required>
-                    <button type="submit" onclick="window.location.href = 'index.jsp'">Registrarse</button>
+                    <button type="submit">Registrarse</button>
                     <p class="message">¿Ya tienes una cuenta? <a href="login.jsp">Inicia Sesión</a></p>
                 </form>
             </div>

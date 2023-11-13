@@ -13,7 +13,10 @@ import Modelo.Producto;
  * @author GabrielMancinas233410
  */
 public class ControladorProducto {
-
+    
+    
+    
+    
     public String getProductosDogos() {
         ModeloProducto mp = new ModeloProducto();
         String htmlcode = "";

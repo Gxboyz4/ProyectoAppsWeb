@@ -6,10 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Carballo Dogos</title>
         <link rel="stylesheet" type="text/css" href="css/style_login.css">
 
     </head>
@@ -20,7 +20,7 @@
                 <form action="iniciar" method="post">
                     <input type="email" name="correo" placeholder="Correo" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
-                    <input type="submit" value="Iniciar sesion">
+                    <button type="submit">Iniciar Sesión</button>
                     <p class="message">¿No tienes una cuenta? <a href="registro.jsp">Regístrate</a></p>
                 </form>
             </div>

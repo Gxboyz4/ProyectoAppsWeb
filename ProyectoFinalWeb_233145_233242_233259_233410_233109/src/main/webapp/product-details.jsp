@@ -21,7 +21,7 @@ response.sendRedirect("index.jsp");
   Producto producto = new ControladorProducto().getProducto(id);
 %>
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">

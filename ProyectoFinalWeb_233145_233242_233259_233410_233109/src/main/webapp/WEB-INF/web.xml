@@ -11,6 +11,8 @@
         <servlet-name>InicioSesion></servlet-name>
         <url-pattern>/iniciar></url-pattern>
     </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30

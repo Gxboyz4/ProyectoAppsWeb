@@ -6,7 +6,9 @@ Controlador\Conexion.class
 servlet\RegistrarUsuarios.class
 Controlador\Main.class
 servlet\AddCart.class
+servlet\AgregarAlimento.class
 Controlador\ControladorProducto.class
 Modelo\Producto.class
 servlet\InicioSesion.class
+servlet\AgregarProducto.class
 Modelo\Articulo.class

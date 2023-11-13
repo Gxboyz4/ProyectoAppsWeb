@@ -60,7 +60,7 @@ response.sendRedirect("index.jsp");
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit">Admin</button>
+                            <button class="btn btn-white shadow-warning text-warning" onclick="window.location.href = 'productos_adm.jsp'" type="button">Admin</button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
                             <button class="btn btn-white shadow-warning text-warning"  type="submit">Contacto</button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
