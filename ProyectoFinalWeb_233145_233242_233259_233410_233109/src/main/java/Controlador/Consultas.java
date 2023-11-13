@@ -58,6 +58,40 @@ public class Consultas {
 
         return false;
     }
+    public boolean autenticacionAdmin(String usuario, String clave) {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            
+            String consulta = "select * from usuarios where correo=? and password=? and administrador=true";
+            System.out.println("Consulta en " + consulta);
+            pst = getConexion().prepareStatement(consulta);
+            
+            pst.setString(1, usuario);
+            pst.setString(2, clave);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error en "+ex);
+        }finally{
+            try{
+                if(getConexion()!=null){
+                    getConexion().close();
+                }if(pst!=null){
+                    pst.close();
+                }if(rs!=null){
+                    rs.close();
+                }
+                
+            }catch(Exception ex){
+                System.out.println("Error en "+ex);
+            }
+        }
+
+        return false;
+    }
     public boolean registrar(String nombre,String usuario, String correo, String password){
         PreparedStatement pst=null;
         try{

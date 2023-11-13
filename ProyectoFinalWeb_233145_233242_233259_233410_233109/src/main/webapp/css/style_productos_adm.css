@@ -14,14 +14,8 @@ body {
     padding: 0;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-}
 
-form {
+.formAdmProducto {
     max-width: 600px;
     margin: 20px auto;
     background-color: #fff;
@@ -44,8 +38,8 @@ input, select {
     box-sizing: border-box;
 }
 
-button {
-    background-color: #4caf50;
+.buttonAdmProducto {
+    background-color: #FF860a;
     color: #fff;
     padding: 10px 15px;
     border: none;
@@ -53,11 +47,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+.buttonAdmProducto:hover {
+    background-color: #D46B00;
 }
 
-table {
+.tableformAdmProductos {
     width: 80%;
     margin: 20px auto;
     background-color: #fff;
@@ -72,7 +66,7 @@ th, td {
 }
 
 th {
-    background-color: #4caf50;
+    background-color: #FF823E;
     color: #fff;
 }
 
@@ -81,7 +75,7 @@ tr:hover {
 }
 
 table button {
-    background-color: #007bff;
+    background-color: #FF860a;
     color: #fff;
     border: none;
     padding: 8px 12px;
@@ -89,5 +83,5 @@ table button {
 }
 
 table button:hover {
-    background-color: #0056b3;
+    background-color: #D46B00;
 }

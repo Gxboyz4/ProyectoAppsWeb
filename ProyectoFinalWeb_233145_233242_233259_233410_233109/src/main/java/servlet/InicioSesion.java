@@ -40,7 +40,14 @@ public class InicioSesion extends HttpServlet {
         if (sql.autenticacion(correo, clave)) {
             HttpSession objSesion = request.getSession(true);
             objSesion.setAttribute("usuario", correo);
-            response.sendRedirect("principal.jsp");
+            sql = new Consultas();
+            if(sql.autenticacionAdmin(correo, clave)){
+                response.sendRedirect("opcionesadmin.jsp");
+            }else{
+                response.sendRedirect("principal.jsp");
+            }
+            
+            
         } else {
             response.sendRedirect("index.jsp");
 

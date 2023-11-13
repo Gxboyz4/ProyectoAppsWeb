@@ -46,7 +46,7 @@
         <main class="main" id="top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand d-inline-flex" href="principal.html">
+                    <a class="navbar-brand d-inline-flex" href="principal.jsp">
                         <img class="d-inline-block" src="img/gallery/logo.svg" alt="logo" />
                         <span class="text-1000 fs-3 fw-bold ms-2 text-gradient">Dogos el Carballo</span>
                     </a>
@@ -59,11 +59,10 @@
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
-                            <button class="btn btn-white shadow-warning text-warning" onclick="window.location.href = 'opcionesadmin.jsp'" type="button">Admin</button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit">Contacto</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'">Contacto</button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
                         </form>
                     </div>
@@ -171,8 +170,8 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-5 col-xl-7 col-xxl-8 g-0 order-md-0"><img class="img-fluid w-100 fit-cover h-100 rounded-top rounded-md-start rounded-md-top-0" src="img/gallery/aguas_frescas.png" alt="..." /></div>
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
-                                            <h1 class="card-title mt-xl-5 mb-4">Para esos dÃ­as calurosos, estÃ¡n nuestras <span class="text-primary">Aguas Frescas</span></h1>
-                                            <p class="fs-1">Te encantarÃ¡ su rico sabor casero.</p>
+                                            <h1 class="card-title mt-xl-5 mb-4">Para esos días calurosos, están nuestras <span class="text-primary">Aguas Frescas</span></h1>
+                                            <p class="fs-1">Te encantará su rico sabor casero.</p>
                                             <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>
@@ -193,7 +192,7 @@
                     <div class="row">
 
                         <div class="col-12 col-md-8 col-lg-6 col-xxl-4">
-                            <h5 class="lh-lg fw-bold text-500">SÃ­guenos</h5>
+                            <h5 class="lh-lg fw-bold text-500">Sí­guenos</h5>
                             <div class="text-start my-3">
                                 <a href="https://www.facebook.com/people/Hot-Dogs-El-Carballo/100070784457086/">
                                     <svg class="svg-inline--fa fa-facebook fa-w-16 fs-2 mx-2" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" viewBox="0 0 512 512">

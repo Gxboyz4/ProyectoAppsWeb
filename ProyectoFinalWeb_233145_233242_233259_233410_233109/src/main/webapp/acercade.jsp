@@ -1,3 +1,9 @@
+<% HttpSession objSesion = request.getSession(false);
+    String usuario = (String) objSesion.getAttribute("usuario");
+    if (usuario.equals("")) {
+        response.sendRedirect("index.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 
@@ -29,7 +35,7 @@
         <!--Contenido-->
 
         <main class="main" id="top">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
                     <a class="navbar-brand d-inline-flex" href="principal.jsp">
                         <img class="d-inline-block" src="img/gallery/logo.svg" alt="logo" />
@@ -44,12 +50,11 @@
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
-                            <button class="btn btn-white shadow-warning text-warning" type="submit">Admin</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit">Contacto</button>
-                            <button class="btn btn-white shadow-warning text-warning" type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit"><i class="fas fa-user"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning" type="submit"> <i class="fas fa-sign-out-alt"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'">Contacto</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
                         </form>
                     </div>
                 </div>
@@ -91,10 +96,10 @@
                             </div>
                             <div class="card-body">
                                 <h1 class="card-title">Acerca de nuestra empresa</h1>
-                                <p class="card-text">Somos una empresa comprometida en brindar el mejor servicio a nuestros clientes. Con aÃ±os de experiencia en la industria, hemos demostrado nuestro compromiso con la excelencia y la satisfacciÃ³n del cliente.</p>
-                                <p class="card-text">Nuestra misiÃ³n es proporcionar productos y servicios de alta calidad que cumplan con las necesidades y expectativas de nuestros clientes. Trabajamos arduamente para mantenernos a la vanguardia de la tecnologÃ­a y ofrecer nuestros productos de la mejor manera.</p>
-                                <p class="card-text">Estamos dedicados a ofrecer el mejor sabor para el paladar del cliente. Siempre estamos dispuestos a escuchar a nuestros clientes y adaptarnos a sus necesidades cambiantes. Su satisfacciÃ³n es nuestra prioridad.</p>
-                                <p class="card-text">Gracias por confiar en nosotros. Â¡Esperamos servirle pronto!</p>
+                                <p class="card-text">Somos una empresa comprometida en brindar el mejor servicio a nuestros clientes. Con años de experiencia en la industria, hemos demostrado nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+                                <p class="card-text">Nuestra misión es proporcionar productos y servicios de alta calidad que cumplan con las necesidades y expectativas de nuestros clientes. Trabajamos arduamente para mantenernos a la vanguardia de la tecnologí­a y ofrecer nuestros productos de la mejor manera.</p>
+                                <p class="card-text">Estamos dedicados a ofrecer el mejor sabor para el paladar del cliente. Siempre estamos dispuestos a escuchar a nuestros clientes y adaptarnos a sus necesidades cambiantes. Su satisfacción es nuestra prioridad.</p>
+                                <p class="card-text">Gracias por confiar en nosotros !Esperamos servirle pronto!</p>
                             </div>
                         </div>
                     </div>
@@ -102,7 +107,34 @@
             </div>
 
 
+<section class="py-0 pt-7 bg-1000">
 
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-12 col-md-8 col-lg-6 col-xxl-4">
+                            <h5 class="lh-lg fw-bold text-500">Sí­guenos</h5>
+                            <div class="text-start my-3">
+                                <a href="https://www.facebook.com/people/Hot-Dogs-El-Carballo/100070784457086/">
+                                    <svg class="svg-inline--fa fa-facebook fa-w-16 fs-2 mx-2" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" viewBox="0 0 512 512">
+                                    <path fill="#BDBDBD" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="border border-800" />
+                        <div class="row flex-center pb-3">
+                            <div class="col-md-6 order-0">
+                                <p class="text-200 text-center text-md-start">Todos los derechos reservados &copy; J-Glam, 2023</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div><!-- end of .container-->
+
+            </section>
         </main>
         <!--Final del contenido-->
 
