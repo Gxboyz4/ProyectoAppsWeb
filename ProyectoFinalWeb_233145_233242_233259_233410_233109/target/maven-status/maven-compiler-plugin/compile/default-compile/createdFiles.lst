@@ -1,11 +1,13 @@
 servlet\ModificarUsuario.class
 Modelo\ModeloUsuario.class
 servlet\ModificarProducto.class
+servlet\ModificarUsuarioPorCorreo.class
 servlet\RegistrarUsuarios.class
 Controlador\Main.class
 servlet\AddCart.class
 servlet\AgregarAlimento.class
 servlet\InicioSesion.class
+Modelo\Pedido.class
 Controlador\Consultas.class
 org\itson\practicalogin233410\JakartaRestConfiguration.class
 Modelo\ModeloProducto.class
@@ -14,6 +16,9 @@ org\itson\practicalogin233410\resources\JakartaEE91Resource.class
 Controlador\ControladorUsuario.class
 Controlador\Conexion.class
 servlet\EliminarProducto.class
+Modelo\ModeloPedido.class
+Controlador\ControladorPedidos.class
+servlet\PagarCarrito.class
 Controlador\ControladorProducto.class
 Modelo\Producto.class
 Modelo\Articulo.class

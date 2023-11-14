@@ -62,10 +62,11 @@
                                     Mexico</span></p>
                         </div>
                         <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
-                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'">Acerca de</button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'">Contacto</button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'"><i class="fa fa-info-circle"></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'"><i class="fas fa-envelope"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'compras_usuario.jsp'"> <i class="fas fa-clipboard-list"></i></i></button>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'modificar_usuario_correo.jsp'"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
                         </form>
                     </div>
@@ -102,13 +103,19 @@
                                 <div class="carousel-inner">
                                     <!-- Itera sobre los primeros 5 productos de la lista y muéstralos en el carousel -->
                                     <%
-                                        List<Producto> productos = new ModeloProducto().getProductosDogos();
+                                        List<Producto> productos;
+                                        if (producto.getCategoria().equalsIgnoreCase("comidas")) {
+                                            productos = new ModeloProducto().getProductosDogos();
+                                        } else {
+                                            productos = new ModeloProducto().getProductosBebidas();
+                                        }
+
                                         int count = 0; // Variable para contar la cantidad de productos mostrados
                                         for (Producto otroProducto : productos) {
-                                            
+
                                     %>
-                                    <div class="carousel-item <% if (count == 0)
-                                                 out.print("active");%>">
+                                         <div class="carousel-item <% if (count == 0)
+                                            out.print("active");%>">
                                         <div class="bg-white p-3">
                                             <img src="img/gallery/<%=otroProducto.getImg()%>" class="d-block w-100 img-thumbnail" alt="">
                                         </div>
@@ -120,8 +127,8 @@
                                         </div>
                                     </div>
                                     <%
-                                                count++;
-                                            
+                                            count++;
+
                                         }
                                     %>
                                 </div>

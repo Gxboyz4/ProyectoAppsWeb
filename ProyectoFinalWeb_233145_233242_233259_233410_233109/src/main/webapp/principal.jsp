@@ -148,7 +148,6 @@
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
                                             <h1 class="card-title mt-xl-5 mb-4">Prueba nuestros ricos<span class="text-primary"> Hot Dogs</span></h1>
                                             <p class="fs-1">Disfruta de su preciso tamaño, no podrás acabártelo.</p>
-                                            <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +172,6 @@
                                         <div class="col-md-7 col-xl-5 col-xxl-4 p-4 p-lg-5">
                                             <h1 class="card-title mt-xl-5 mb-4">Para esos días calurosos, están nuestras <span class="text-primary">Aguas Frescas</span></h1>
                                             <p class="fs-1">Te encantará su rico sabor casero.</p>
-                                            <div class="d-grid bottom-0"><a class="btn btn-lg btn-primary mt-xl-6" href="#!">Ver opciones<i class="fas fa-chevron-right ms-2"></i></a></div>
                                         </div>
                                     </div>
                                 </div>

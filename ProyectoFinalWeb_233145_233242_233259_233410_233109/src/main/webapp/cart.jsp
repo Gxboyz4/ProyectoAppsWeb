@@ -14,6 +14,10 @@
         response.sendRedirect("index.jsp");
     }
 %>
+<%
+    HttpSession sesion = request.getSession(true);
+    ArrayList<Articulo> articulos = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
+%>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 
@@ -38,10 +42,7 @@
         <link href="css/theme.css" rel="stylesheet" />
         <link href="css/Style_carrito.css" rel="stylesheet" />
 
-
     </head>
-
-
     <body style="margin-top: 100px;">
         <!--Contenido-->
 
@@ -87,40 +88,49 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <%
+                                        ControladorProducto cp = new ControladorProducto();
+                                        double total = 0;
+                                        if (articulos != null) {
+                                            for (Articulo a : articulos) {
+                                                Producto producto = cp.getProducto(a.getIdProducto());
+                                                total += a.getCantidad() * producto.getPrecio();
+                                    %>
                                     <tr>
                                         <td class="cart_product">
-                                            <a href=""><img src="img/" alt="" width="230" height="230"></a>
+                                            <a href=""><img src="img/gallery/<%=producto.getImg()%>" alt="" width="230" height="230"></a>
                                         </td>
                                         <td class="cart_description">
-                                            <h4><a href="" style="color: #000000;"></a></h4>
-                                            <p>Web ID:</p>
+                                            <h4><a href=""><%=producto.getNombre()%></a></h4>
+                                            <p>Web ID: <%=producto.getId()%></p>
                                         </td>
                                         <td class="cart_price">
-                                            <p></p>
+                                            <p>$<%=producto.getPrecio()%></p>
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
-                                                <a class="cart_quantity_up" href=""><i class="fas fa-plus"></i></a>
-                                                <input class="cart_quantity_input" type="text" name="quantity" value="" autocomplete="off" size="2">
-                                                <a class="cart_quantity_down" href=""><i class="fa fa-times"></i></a>
+                                                <a class="cart_quantity_up" href=""> + </a>
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>" autocomplete="off" size="2">
+                                                <a class="cart_quantity_down" href=""> ~ </a>
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price"> </p>
+                                            <p class="cart_total_price">$<%= Math.round(producto.getPrecio() * a.getCantidad() * 100.0) / 100.0%></p>
                                         </td>
                                         <td class="cart_delete">
-                                            <span id="idarticulo" style="" ></span>
-                                            <a class="cart_quantity_delete" href="" id="deleteitem"><i class="fas fa-trash"></i></a>
+                                            <span id="idarticulo" style="display:none;"><%= producto.getId()%> </span>
+                                            <a class="cart_quantity_delete" href="" id="deleteitem"><i class="fa fa-times"></i></a>
                                         </td>
 
-
+                                        <%      }
+                                            }
+                                        %>
                                 </tbody>
                             </table>
-
+                            <% if (articulos == null) {%>
                             <h4>No hay articulos en el carrito de compras</h4>
-
-                        </div><a class="btn btn-default" href="javascript:window.history.go(-2);"><i class="fa fa-shopping-cart"></i>Seguir Comprando</a>
+                            <% }%>
+                        </div><a href="principal.jsp">Seguir Comprando</a>
                     </div>
                     <div class="col-sm-6">
                         <div class="card">
@@ -129,17 +139,25 @@
                                 <table>
                                     <tr>
                                         <td>Sub-total <span id="txt-subtotal"></td>
-                                        <td></span></td>
+                                        <td>$ <%= total %></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>IVA<span></td>
+                                        <td>$ <%= String.format("%.4f",total * 0.16f)%></span></td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
-                                        <td><span id="txt-total"></span></td>
+                                        <td><span id="totalCompra" name="totalCompra">$ <%= String.format("%.4f",total + total * 0.16f) %></span></td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-default update" class="btn-pagar" href=""><i class="fa fa-shopping-cart"></i>Actualizar</a>
-                                <a class="btn btn-default check_out" class="btn-pagar" href=""><i class="fa fa-shopping-cart"></i>Pagar</a>
+                                <form action="pagarcarrito" method="post">
+                                    <button type="submit" class="btn-pagar">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Pagar
+                                    </button>
+                                </form>   
                             </div>
                         </div>
                     </div>

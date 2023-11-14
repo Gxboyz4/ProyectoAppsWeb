@@ -33,6 +33,7 @@ public class AddCart extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        System.out.println("Entra al servlet de agregar producto al carrito");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         int idproducto = Integer.parseInt(request.getParameter("idproducto"));
 
