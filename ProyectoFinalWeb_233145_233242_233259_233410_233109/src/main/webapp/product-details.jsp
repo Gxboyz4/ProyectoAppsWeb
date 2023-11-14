@@ -105,7 +105,7 @@
                                         List<Producto> productos = new ModeloProducto().getProductosDogos();
                                         int count = 0; // Variable para contar la cantidad de productos mostrados
                                         for (Producto otroProducto : productos) {
-                                            if (count < 5) {
+                                            
                                     %>
                                     <div class="carousel-item <% if (count == 0)
                                                  out.print("active");%>">
@@ -121,9 +121,7 @@
                                     </div>
                                     <%
                                                 count++;
-                                            } else {
-                                                break; // Sal del bucle cuando se hayan mostrado 5 productos
-                                            }
+                                            
                                         }
                                     %>
                                 </div>

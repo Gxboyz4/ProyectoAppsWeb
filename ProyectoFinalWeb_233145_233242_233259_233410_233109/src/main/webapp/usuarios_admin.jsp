@@ -81,7 +81,7 @@
                             
             
 
-        <table class="tableformAdmUsuario" border="1">
+        <table class="tableformAdmProductos" border="1">
             <thead>
                 <tr>
                     <th>ID</th>

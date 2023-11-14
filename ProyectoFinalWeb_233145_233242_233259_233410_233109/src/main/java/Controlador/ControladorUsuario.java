@@ -39,4 +39,9 @@ public class ControladorUsuario {
     public Usuario getUsuario(int id) {
         return new ModeloUsuario().getUsuario(id);
     }
+    public Usuario getUsuarioCorreo(String correo)
+    {
+        return new ModeloUsuario().getUsuarioCorreo(correo);
+    }
+
 }

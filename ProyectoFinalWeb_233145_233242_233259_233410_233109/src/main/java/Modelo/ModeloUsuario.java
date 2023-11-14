@@ -137,4 +137,61 @@ public class ModeloUsuario extends Conexion{
         }
         return usuario;
     }
+    public Usuario getUsuarioCorreo(String correo)
+    {
+        CallableStatement cstmt = null;
+        ResultSet rs = null;
+        Usuario usuario = null;
+        try {
+            String sql = "call selectUsuario(?)";
+            cstmt = getConexion().prepareCall(sql);
+            
+            cstmt.setString(1, correo);
+            rs = cstmt.executeQuery();
+            if (rs.next()) {
+                usuario = new Usuario(rs.getInt("id"),rs.getString("nombre"),rs.getString("usuario"),
+                rs.getString("correo"),rs.getString("password"),rs.getBoolean("administrador"));
+            }
+            return usuario;
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener usuario: " + ex);
+        } finally {
+            try {
+                if (cstmt != null) {
+                    cstmt.close();
+                }               
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+            } catch (Exception ex) {
+            }
+        }
+        return usuario;
+    }
+    
+    public void actualizarUsuarioPorCorreo(String nombre,String usuario,String correo, String password){
+        CallableStatement cstmt = null;
+
+        try {
+            String sql = "call actualizarUsuarioPorCorreo(?,?,?,?)";
+            cstmt = getConexion().prepareCall(sql);
+            cstmt.setString(1, nombre);
+            cstmt.setString(2, usuario);
+            cstmt.setString(3, correo);
+            cstmt.setString(4, password);
+            cstmt.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Error al actualizar usario: " + ex);
+        } finally {
+            try {
+                if (cstmt != null) {
+                    cstmt.close();
+                }               
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+            } catch (Exception ex) {
+            }
+        }
+    } 
 }
