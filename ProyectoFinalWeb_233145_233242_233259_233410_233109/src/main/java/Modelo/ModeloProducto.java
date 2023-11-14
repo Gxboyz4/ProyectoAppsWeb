@@ -219,7 +219,7 @@ public class ModeloProducto extends Conexion {
         ResultSet rs = null;
 
         try {
-            String sql = "call selectProducto(?)";
+            String sql = "SELECT * FROM productos WHERE id = ?";
             pst = getConexion().prepareCall(sql);
             pst.setInt(1, id);
             rs = pst.executeQuery();

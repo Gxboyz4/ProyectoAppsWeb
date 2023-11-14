@@ -25,7 +25,7 @@ public class ControladorProducto {
                     + "                                                        <span class=\"text-1000 fw-bold\"> $ " + producto.getPrecio() + "</span>\n"
                     + "                                                    </div>\n"
                     + "                                                </div>\n"
-                    + "                                                <div class=\"d-grid gap-2\"><a class=\"btn btn-lg btn-danger\" href=\"#!\" role=\"button\">Comprar</a></div>\n"
+                    + "                                                <div class=\"d-grid gap-2\"><a class=\"btn btn-lg btn-danger\" href=\"product-details.jsp?id=" + producto.getId() + "\" role=\"button\">Ver detalles</a></div>\n"
                     + "                                            </div>";
         }
         return htmlcode;
