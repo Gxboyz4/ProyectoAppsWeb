@@ -47,9 +47,6 @@ public class ModeloPedido extends Conexion{
                 if (pst != null) {
                     pst.close();
                 }
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
             } catch (Exception ex) {
             }
         }
@@ -75,9 +72,6 @@ public class ModeloPedido extends Conexion{
             try {
                 if (cstmt != null) {
                     cstmt.close();
-                }               
-                if (getConexion() != null) {
-                    getConexion().close();
                 }
             } catch (Exception ex) {
             }

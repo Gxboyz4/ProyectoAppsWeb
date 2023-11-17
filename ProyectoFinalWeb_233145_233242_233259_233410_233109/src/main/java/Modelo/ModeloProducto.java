@@ -44,10 +44,7 @@ public class ModeloProducto extends Conexion {
             try {
                 if (cstmt != null) {
                     cstmt.close();
-                }               
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
+                }   
             } catch (Exception ex) {
             }
         }
@@ -71,10 +68,7 @@ public class ModeloProducto extends Conexion {
             try {
                 if (cstmt != null) {
                     cstmt.close();
-                }               
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
+                } 
             } catch (Exception ex) {
             }
         }
@@ -105,10 +99,7 @@ public class ModeloProducto extends Conexion {
             try {
                 if (cstmt != null) {
                     cstmt.close();
-                }               
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
+                } 
             } catch (Exception ex) {
             }
         }
@@ -138,9 +129,6 @@ public class ModeloProducto extends Conexion {
                 }
                 if (pst != null) {
                     pst.close();
-                }
-                if (getConexion() != null) {
-                    getConexion().close();
                 }
             } catch (Exception ex) {
             }
@@ -174,9 +162,6 @@ public class ModeloProducto extends Conexion {
                 if (pst != null) {
                     pst.close();
                 }
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
             } catch (Exception ex) {
             }
         }
@@ -209,9 +194,6 @@ public class ModeloProducto extends Conexion {
                 if (pst != null) {
                     pst.close();
                 }
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
             } catch (Exception ex) {
             }
         }
@@ -243,9 +225,6 @@ public class ModeloProducto extends Conexion {
                 }
                 if (pst != null) {
                     pst.close();
-                }
-                if (getConexion() != null) {
-                    getConexion().close();
                 }
             } catch (Exception ex) {
                 System.out.println("Error en: " + ex);

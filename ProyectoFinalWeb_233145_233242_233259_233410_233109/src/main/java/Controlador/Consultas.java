@@ -44,9 +44,7 @@ public class Consultas {
             return false;
         }finally{
             try{
-                if(getConexion()!=null){
-                    getConexion().close();
-                }if(pst!=null){
+                if(pst!=null){
                     pst.close();
                 }if(rs!=null){
                     rs.close();
@@ -80,9 +78,7 @@ public class Consultas {
              return false;
         }finally{
             try{
-                if(getConexion()!=null){
-                    getConexion().close();
-                }if(pst!=null){
+                if(pst!=null){
                     pst.close();
                 }if(rs!=null){
                     rs.close();
@@ -112,7 +108,6 @@ public class Consultas {
             }finally{
             try{
                 if(getConexion()!=null){
-                    getConexion().close();
                     if(pst!=null){
                         pst.close();
                     }
