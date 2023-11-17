@@ -130,14 +130,43 @@ public class ConsultasTest {
         assertTrue(resultado);
     }
     
+    //11
+    @Test
+    public void agregarProductoTest() {
+        ModeloProducto mp = new ModeloProducto();
+        Producto producto = new Producto(79, "Dogo Especial", "imagenTest.jpg", 45.00, 20, "Un dogo especial para una ocasión especial.", "comidas");
+        boolean resultado = mp.agregarProducto(producto);
+        assertTrue(resultado);
+    }
+    
+    //12
+    @Test
+    public void verificarObtenerListaProductos(){
+        ModeloProducto modeloProducto = new ModeloProducto();
+        
+        List<Producto> listaProductos = modeloProducto.getAllProductos();
+        
+        assertTrue(!listaProductos.isEmpty());
+    }
+    
+    //13
+    @Test
+    public void verificarObtenerListaBebidas(){
+        ModeloProducto modeloProducto = new ModeloProducto();
+        
+        List<Producto> listaProductos = modeloProducto.getAllProductos();
+        
+        assertTrue(!listaProductos.isEmpty());
+    }
+    
     //14
     @Test
     public void verificarObtenerListaComidas(){
         ModeloProducto modeloProducto = new ModeloProducto();
         
-        List<Producto> listaDogos = modeloProducto.getProductosDogos();
+        List<Producto> listaBebidas = modeloProducto.getProductosBebidas();
         
-        assertTrue(!listaDogos.isEmpty());
+        assertTrue(!listaBebidas.isEmpty());
     }
     
     //15
