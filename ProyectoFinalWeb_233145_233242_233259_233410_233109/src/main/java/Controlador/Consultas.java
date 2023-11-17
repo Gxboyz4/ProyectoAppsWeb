@@ -41,6 +41,7 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("Error en "+ex);
+            return false;
         }finally{
             try{
                 if(getConexion()!=null){
@@ -74,7 +75,9 @@ public class Consultas {
                 return true;
             }
         } catch (SQLException ex) {
+           
             System.out.println("Error en "+ex);
+             return false;
         }finally{
             try{
                 if(getConexion()!=null){
