@@ -20,7 +20,7 @@ public class ModeloUsuario extends Conexion{
     public ModeloUsuario() {
     }
     
-    public void eliminarUsuario(int idUsuario){
+    public boolean eliminarUsuario(int idUsuario){
         CallableStatement cstmt = null;
 
         try {
@@ -30,8 +30,10 @@ public class ModeloUsuario extends Conexion{
             cstmt.setInt(1, idUsuario);
 
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al eliminar usuario: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {
@@ -45,7 +47,7 @@ public class ModeloUsuario extends Conexion{
         }
     }
     
-    public void actualizarUsuario(int idUsuario,String nuevaPasssword){
+    public boolean actualizarUsuario(int idUsuario,String nuevaPasssword){
         CallableStatement cstmt = null;
 
         try {
@@ -57,8 +59,10 @@ public class ModeloUsuario extends Conexion{
             
 
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al actualizar usario: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {
@@ -169,7 +173,7 @@ public class ModeloUsuario extends Conexion{
         return usuario;
     }
     
-    public void actualizarUsuarioPorCorreo(String nombre,String usuario,String correo, String password){
+    public boolean actualizarUsuarioPorCorreo(String nombre,String usuario,String correo, String password){
         CallableStatement cstmt = null;
 
         try {
@@ -180,8 +184,10 @@ public class ModeloUsuario extends Conexion{
             cstmt.setString(3, correo);
             cstmt.setString(4, password);
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al actualizar usario: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {

@@ -32,8 +32,8 @@ public class ControladorPedidos {
         return html;
     }
     
-    public void agregarPedido(int id_usuario,String descripcion,float precio_venta) {
+    public boolean agregarPedido(int id_usuario,String descripcion,float precio_venta) {
         ModeloPedido mu = new ModeloPedido();
-        mu.agregarPedido(id_usuario, descripcion, precio_venta);
+        return mu.agregarPedido(id_usuario, descripcion, precio_venta);
     }
 }

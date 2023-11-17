@@ -21,7 +21,7 @@ public class ModeloProducto extends Conexion {
     public ModeloProducto() {
     }
 
-    public void agregarProducto(Producto producto) {
+    public boolean agregarProducto(Producto producto) {
         CallableStatement cstmt = null;
 
         try {
@@ -36,8 +36,10 @@ public class ModeloProducto extends Conexion {
             cstmt.setString(6, producto.getDescripcion());
 
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al insertar producto: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {
@@ -51,7 +53,7 @@ public class ModeloProducto extends Conexion {
         }
     }
 
-    public void eliminarProducto(int idProducto) {
+    public boolean eliminarProducto(int idProducto) {
         CallableStatement cstmt = null;
 
         try {
@@ -61,8 +63,10 @@ public class ModeloProducto extends Conexion {
             cstmt.setInt(1, idProducto);
 
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al eliminar producto: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {
@@ -76,7 +80,7 @@ public class ModeloProducto extends Conexion {
         }
     }
 
-    public void actualizarProducto(int productoId, String nuevoNombre, double nuevoPrecio,
+    public boolean actualizarProducto(int productoId, String nuevoNombre, double nuevoPrecio,
             String nuevaDescripcion, String nuevaCategoria, String nuevaImagen, int nuevoStock) {
         CallableStatement cstmt = null;
 
@@ -93,8 +97,10 @@ public class ModeloProducto extends Conexion {
             cstmt.setInt(7, nuevoStock);
 
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al actualizar producto: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {

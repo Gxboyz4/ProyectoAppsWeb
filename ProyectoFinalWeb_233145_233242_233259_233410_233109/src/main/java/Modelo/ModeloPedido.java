@@ -56,7 +56,7 @@ public class ModeloPedido extends Conexion{
         return pedidos;
     }
     
-    public void agregarPedido(int id_usuario,String descripcion,float precio_venta) {
+    public boolean agregarPedido(int id_usuario,String descripcion,float precio_venta) {
         CallableStatement cstmt = null;
 
         try {
@@ -67,8 +67,10 @@ public class ModeloPedido extends Conexion{
             cstmt.setInt(2, id_usuario);
             cstmt.setFloat(3, precio_venta);
             cstmt.executeUpdate();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Error al insertar pedido: " + ex);
+            return false;
         } finally {
             try {
                 if (cstmt != null) {

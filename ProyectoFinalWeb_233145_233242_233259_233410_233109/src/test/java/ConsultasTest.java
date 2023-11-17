@@ -21,7 +21,7 @@ public class ConsultasTest {
     
 
     
-
+    //1
     @Test
     public void registrar_RegistroExitoso() {
       
@@ -35,6 +35,7 @@ public class ConsultasTest {
         assertTrue(resultado);
     }
 
+    //2
     @Test
     public void registrar_FalloEnRegistro() {
         
@@ -48,6 +49,7 @@ public class ConsultasTest {
         boolean resultado = consultas.registrar(nombre, usuario, correo, password);
         assertFalse(resultado);
     }
+    //3
     @Test
     public void autenticacion_UsuarioValido() {
         
@@ -59,7 +61,8 @@ public class ConsultasTest {
         boolean resultado = consultas.autenticacion(correo, password);
         assertTrue(resultado);
     }
-
+ 
+    //4
     @Test
     public void autenticacion_UsuarioInvalido() {
         
