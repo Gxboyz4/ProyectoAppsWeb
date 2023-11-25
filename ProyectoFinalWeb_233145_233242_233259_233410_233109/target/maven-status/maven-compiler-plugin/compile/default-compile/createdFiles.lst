@@ -22,4 +22,5 @@ servlet\PagarCarrito.class
 Controlador\ControladorProducto.class
 Modelo\Producto.class
 Modelo\Articulo.class
+servlet\ActualizarCantidad.class
 servlet\EliminarUsuario.class

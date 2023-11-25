@@ -10,16 +10,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
-/**
- *
- * @author mario
- */
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class ModificarProducto extends HttpServlet {
+    
+    private static final String CARPETA_DESTINO = 
+            "C:\\Users\\mario\\3D Objects\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,8 +42,23 @@ public class ModificarProducto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         // Variables del formulario  
+        PrintWriter out = response.getWriter();
         String nombre = request.getParameter("nombre");
-        String img = request.getParameter("img");
+        Part archivo = request.getPart("img");
+        String nombreArchivo = getNombreArchivo(archivo);
+        String archivoDestino = CARPETA_DESTINO + nombreArchivo;
+
+        try (InputStream input = archivo.getInputStream(); OutputStream output = new FileOutputStream(new File(archivoDestino))) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = input.read(buffer)) != -1) {
+                output.write(buffer, 0, length);
+            }
+            System.out.println("Archivo guardado: " + archivoDestino);
+        } catch (IOException e) {
+            return;
+        }
+        
         double precio = Double.parseDouble(request.getParameter("precio"));
         int stock = Integer.parseInt(request.getParameter("stock"));
         String descripcion = request.getParameter("descripcion");
@@ -44,9 +67,28 @@ public class ModificarProducto extends HttpServlet {
         
         ModeloProducto mp = new ModeloProducto();
         
-        mp.actualizarProducto(identificadorProducto, nombre, precio, descripcion, categoria, img, stock);
-        System.out.println("Producto actualizado "+nombre);
-        response.sendRedirect("productos_adm.jsp");
+        if(mp.actualizarProducto(identificadorProducto, nombre, precio, descripcion, 
+                categoria, nombreArchivo, stock)){
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Producto actualizado correctamente');");
+            out.println("window.location='productos_adm.jsp';");
+            out.println("</script>"); 
+        }else{
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Error al actualizar producto');");
+            out.println("window.location='productos_adm.jsp';");
+            out.println("</script>"); 
+        }
+    }
+    
+    private String getNombreArchivo(final Part archivo) {
+        final String headerArchivo = archivo.getHeader("content-disposition");
+        for (String contenido : headerArchivo.split(";")) {
+            if (contenido.trim().startsWith("filename")) {
+                return contenido.substring(contenido.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+        return null;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

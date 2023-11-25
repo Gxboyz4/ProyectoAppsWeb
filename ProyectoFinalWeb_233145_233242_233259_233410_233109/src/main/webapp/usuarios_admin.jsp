@@ -71,10 +71,10 @@
                             <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
-                        <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
+                        
                             <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
-                        </form>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'index.jsp'"> <i class="fas fa-sign-out-alt"></i></button>
+                        
                     </div>
                 </div>
             </nav>

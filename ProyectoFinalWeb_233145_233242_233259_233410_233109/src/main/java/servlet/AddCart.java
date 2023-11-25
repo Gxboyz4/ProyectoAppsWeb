@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +33,6 @@ public class AddCart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         System.out.println("Entra al servlet de agregar producto al carrito");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         int idproducto = Integer.parseInt(request.getParameter("idproducto"));

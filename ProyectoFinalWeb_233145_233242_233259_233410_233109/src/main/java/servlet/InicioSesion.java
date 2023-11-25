@@ -41,15 +41,22 @@ public class InicioSesion extends HttpServlet {
             HttpSession objSesion = request.getSession(true);
             objSesion.setAttribute("usuario", correo);
             sql = new Consultas();
-            if(sql.autenticacionAdmin(correo, clave)){
-                response.sendRedirect("opcionesadmin.jsp");
-            }else{
-                response.sendRedirect("principal.jsp");
+            if (sql.autenticacionAdmin(correo, clave)) {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario logueado correctamente como administrador');");
+                out.println("window.location='opcionesadmin.jsp';");
+                out.println("</script>");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario logueado correctamente');");
+                out.println("window.location='principal.jsp';");
+                out.println("</script>");
             }
-            
-            
         } else {
-            response.sendRedirect("index.jsp");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Credenciales inválidas');");
+            out.println("window.location='index.jsp';");
+            out.println("</script>");
 
         }
     }

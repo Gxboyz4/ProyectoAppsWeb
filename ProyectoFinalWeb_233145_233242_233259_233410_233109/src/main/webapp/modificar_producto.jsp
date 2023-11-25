@@ -33,7 +33,6 @@
                 // Obtener referencias a los elementos del formulario
                 var idInput = document.getElementById("identificador");
                 var nombreInput = document.getElementById('nombre');
-                var imgInput = document.getElementById('img');
                 var precioInput = document.getElementById('precio');
                 var stockInput = document.getElementById('stock');
                 var descripcionTextarea = document.getElementById('descripcion');
@@ -42,7 +41,6 @@
                 // Asignar valores a los campos del formulario
                 idInput.value = '<%= producto.getId()%>';
                 nombreInput.value = '<%= producto.getNombre()%>';
-                imgInput.value = '<%= producto.getImg()%>';
                 precioInput.value = '<%= producto.getPrecio()%>';
                 stockInput.value = '<%= producto.getStock()%>';
                 descripcionTextarea.value = '<%= producto.getDescripcion()%>';
@@ -66,11 +64,11 @@
                             <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
-                        <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
+                        
 
                             <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
-                        </form>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'index.jsp'"> <i class="fas fa-sign-out-alt"></i></button>
+                        
                     </div>
                 </div>
             </nav>
@@ -78,22 +76,22 @@
             <h1>CRUD de Productos</h1>
         </header>
 
-        <form class="formAdmProducto" action="modificarproducto" method="post">
+        <form class="formAdmProducto" action="modificarproducto" method="post" enctype="multipart/form-data">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="30" required />
 
-            <label for="img">URL de la Imagen:</label>
-            <input type="text" id="img" name="img" required />
+            <label for="img">Imagen del producto:</label>
+                <input type="file" id="img" name="img" accept=".png, .jpg" required />
 
             <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" step="0.01" required />
+            <input type="number" id="precio" name="precio" step="0.01" placeholder="0.01" min="0.01" required />
 
             <label for="stock">Stock:</label>
-            <input type="number" id="stock" name="stock" required />
+            <input type="number" id="stock" name="stock" placeholder="1" min="1" required />
 
             <label for="descripcion">Descripción:</label>
             <br>
-            <textarea id="descripcion" name="descripcion" rows="4" required ></textarea>
+            <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ingrese la descripción del producto" maxlength="80" required ></textarea>
             <br>
             <label for="categoria">Categoría:</label>
             <select id="categoria" name="categoria" required>

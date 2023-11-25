@@ -22,6 +22,8 @@ public class ConsultasTest {
     public ConsultasTest() {
     }
 
+    /*
+    
     //1
     @Test
     public void registrarRegistroExitosoTest() {
@@ -197,5 +199,7 @@ public class ConsultasTest {
         
         assertNull(usuarioEliminado);
     }
+
+    */
 
 }

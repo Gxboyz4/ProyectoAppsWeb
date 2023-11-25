@@ -4,17 +4,10 @@
  */
 package servlet;
 
-import Controlador.ControladorPedidos;
-import Controlador.ControladorProducto;
-import Controlador.ControladorUsuario;
 import Modelo.Articulo;
-import Modelo.ModeloProducto;
-import Modelo.Producto;
-import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author mario
  */
-public class PagarCarrito extends HttpServlet {
+public class ActualizarCantidad extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,40 +32,37 @@ public class PagarCarrito extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        PrintWriter out = response.getWriter();
+        String contenido = request.getParameter("id");
+        String [] parametros = contenido.split("-");
+        
+        System.out.println("El contenido de la peticion es: "+contenido);
+        int idArticulo = Integer.parseInt(parametros[0]);
+        int cantidad = Integer.parseInt(parametros[1]);
+        
+        System.out.println("El id del articulo es: "+idArticulo);
+        System.out.println("La cantidad del articulo es: "+cantidad);
+        
         HttpSession sesion = request.getSession(true);
-        ArrayList<Articulo> articulos = (ArrayList) sesion.getAttribute("carrito");
+        ArrayList<Articulo> articulos = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
 
-        String correo = (String) sesion.getAttribute("usuario");
-        float total = 0f;
-
-        ControladorPedidos cp = new ControladorPedidos();
-        ControladorUsuario cu = new ControladorUsuario();
-        ControladorProducto cpr = new ControladorProducto();
-
-        Usuario usuario = cu.getUsuarioCorreo(correo);
-
-        String descripcion = "La compra fue de: ";
+        Articulo articuloEliminar = null;
+        
         if (articulos.size() > 0) {
             for (Articulo a : articulos) {
-                Producto producto = cpr.getProducto(a.getIdProducto());
-                descripcion += a.getCantidad() + " " + producto.getNombre() + "| ";
-                total += a.getCantidad() * producto.getPrecio();
+                if (idArticulo == a.getIdProducto()) {
+                    if(cantidad==0){
+                        articuloEliminar = a;
+                    }else{
+                        a.setCantidad(cantidad);
+                    }
+                    break;
+                }
             }
-            total += (int) (total * 0.16f);
-            cp.agregarPedido(usuario.getId(), descripcion, total);
-            sesion.setAttribute("carrito", null);
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Se realizó la compra correctamente');");
-            out.println("window.location='compras_usuario.jsp';");
-            out.println("</script>");
-        } else {
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Hubo un error al realizar la compra');");
-            out.println("window.location='cart.jsp';");
-            out.println("</script>");
         }
+        if(articuloEliminar != null){
+            articulos.remove(articuloEliminar);
+        }
+        sesion.setAttribute("carrito", articulos);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

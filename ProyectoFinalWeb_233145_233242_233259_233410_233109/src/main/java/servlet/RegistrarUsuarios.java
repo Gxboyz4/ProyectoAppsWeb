@@ -42,9 +42,15 @@ public class RegistrarUsuarios extends HttpServlet {
         if (password.equals(password2)) {
             Consultas sql = new Consultas();
             if (sql.registrar(nombre, usuario, correo, password)) {
-                response.sendRedirect("index.jsp");
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Cuenta registrada correctamente');");
+                out.println("window.location='index.jsp';");
+                out.println("</script>");
             } else {
-                response.sendRedirect("registro.jsp");
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Hubo un error al registrar su cuenta');");
+                out.println("window.location='registro.jsp';");
+                out.println("</script>");
             }
         } else {
             // Mostrar una alerta de que las contraseñas no son iguales

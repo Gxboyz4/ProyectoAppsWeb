@@ -14,7 +14,7 @@
 <html lang="es" dir="ltr">
 
     <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!--Titulo del documento-->
@@ -32,24 +32,24 @@
         <!--Hojas de estilo-->
         <link href="css/style_productos_adm.css" rel="stylesheet" type="text/css"/>
         <link href="css/theme.css" rel="stylesheet" />
-        
+
         <script>
-        function enviarEliminarProducto(idProducto) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "eliminarproducto", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    window.location.href = 'productos_adm.jsp';
-                }
-            };
-            var params = "id=" + idProducto;
-            xhr.send(params);
-        }
-        function enviarModificarProducto(idProducto) {
-            window.location.href = "modificar_producto.jsp?idProducto=" + idProducto;
-        }
-    </script>
+            function enviarEliminarProducto(idProducto) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "eliminarproducto", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        window.location.href = 'productos_adm.jsp';
+                    }
+                };
+                var params = "id=" + idProducto;
+                xhr.send(params);
+            }
+            function enviarModificarProducto(idProducto) {
+                window.location.href = "modificar_producto.jsp?idProducto=" + idProducto;
+            }
+        </script>
     </head>
 
 
@@ -57,7 +57,7 @@
         <!--Contenido-->
 
         <main class="main" id="top">
-             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-navbar-on-scroll="data-navbar-on-scroll">
                 <div class="container">
                     <a class="navbar-brand d-inline-flex" href="opcionesadmin.jsp">
                         <img class="d-inline-block" src="img/gallery/logo.svg" alt="logo" />
@@ -71,55 +71,55 @@
                             <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
-                        <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
+                        
                             <button class="btn btn-white shadow-warning text-warning"  type="submit"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
-                        </form>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'index.jsp'"> <i class="fas fa-sign-out-alt"></i></button>
+                        
                     </div>
                 </div>
             </nav>
-                            
-            <form class="formAdmProducto" action="agregaralimento" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required />
 
-            <label for="img">URL de la Imagen:</label>
-            <input type="text" id="img" name="img" required />
+            <form class="formAdmProducto" action="agregaralimento" method="post" enctype="multipart/form-data">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="30" required />
 
-            <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" step="0.01" required />
+                <label for="img">Imagen del producto:</label>
+                <input type="file" id="img" name="img" accept=".png, .jpg" required />
 
-            <label for="stock">Stock:</label>
-            <input type="number" id="stock" name="stock" required />
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" placeholder="0.01" step="0.01" min="0.01" required />
 
-            <label for="descripcion">Descripción:</label>
-            <br>
-            <textarea id="descripcion" name="descripcion" rows="4" required ></textarea>
-            <br>
-            <label for="categoria">Categoría:</label>
-            <select id="categoria" name="categoria" required>
-                <option value="comidas">Comidas</option>
-                <option value="bebidas">Bebidas</option>
-            </select>
-            <br>
-            <br>
-            <button class="buttonAdmProducto" type="submit">Agregar Producto</button>
-        </form>
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock" placeholder="1" min="1" required />
 
-        <table class="tableformAdmProductos" border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre del Producto</th>
-                    <th>Precio(MXN)</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%=cp.getProductos()%>
-            </tbody>
-        </table>
+                <label for="descripcion">Descripción:</label>
+                <br>
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ingrese la descripción del producto" maxlength="80" required ></textarea>
+                <br>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="comidas">Comidas</option>
+                    <option value="bebidas">Bebidas</option>
+                </select>
+                <br>
+                <br>
+                <button class="buttonAdmProducto" type="submit">Agregar Producto</button>
+            </form>
+
+            <table class="tableformAdmProductos" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del Producto</th>
+                        <th>Precio(MXN)</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%=cp.getProductos()%>
+                </tbody>
+            </table>
 
         </main>
         <!--Final del contenido-->

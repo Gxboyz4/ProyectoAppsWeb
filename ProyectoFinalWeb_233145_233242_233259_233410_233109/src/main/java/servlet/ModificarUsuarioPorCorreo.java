@@ -31,7 +31,8 @@ public class ModificarUsuarioPorCorreo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         // Variables del formulario
         String correo = request.getParameter("correo");
         String usuario = request.getParameter("usuario");
@@ -40,11 +41,18 @@ public class ModificarUsuarioPorCorreo extends HttpServlet {
 
         ModeloUsuario mp = new ModeloUsuario();
 
-        mp.actualizarUsuarioPorCorreo(nombre,usuario,correo,password);
-        System.out.println("Usuario actualizado " + correo);
-        response.sendRedirect("principal.jsp");
+        if (mp.actualizarUsuarioPorCorreo(nombre, usuario, correo, password)) {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Usuario actualizado correctamente');");
+            out.println("window.location='principal.jsp';");
+            out.println("</script>");
+        } else {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Error al actualizar usuario');");
+            out.println("window.location='principal.jsp';");
+            out.println("</script>");
         }
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

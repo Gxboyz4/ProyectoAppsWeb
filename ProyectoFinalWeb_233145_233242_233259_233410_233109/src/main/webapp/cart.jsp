@@ -41,7 +41,7 @@
         <!--Hojas de estilo-->
         <link href="css/theme.css" rel="stylesheet" />
         <link href="css/Style_carrito.css" rel="stylesheet" />
-
+        <script src="js/cantidadArticulo.js" type="text/javascript"></script>
     </head>
     <body style="margin-top: 100px;">
         <!--Contenido-->
@@ -61,14 +61,14 @@
                             <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
-                        <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
+                        
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'"><i class="fa fa-info-circle"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'"><i class="fas fa-envelope"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'compras_usuario.jsp'"> <i class="fas fa-clipboard-list"></i></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'modificar_usuario_correo.jsp'"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
-                        </form>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'index.jsp'"> <i class="fas fa-sign-out-alt"></i></button>
+                        
                     </div>
                 </div>
             </nav>
@@ -102,16 +102,16 @@
                                         </td>
                                         <td class="cart_description">
                                             <h4><a href=""><%=producto.getNombre()%></a></h4>
-                                            <p>Web ID: <%=producto.getId()%></p>
+                                            <p>Stock: <%=producto.getStock()%></p>
                                         </td>
                                         <td class="cart_price">
                                             <p>$<%=producto.getPrecio()%></p>
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
-                                                <a class="cart_quantity_up" href=""> + </a>
-                                                <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>" autocomplete="off" size="2">
-                                                <a class="cart_quantity_down" href=""> ~ </a>
+                                                <a class="cart_quantity_up" href="#" data-articulo-id="<%= producto.getId()%>">+</a> 
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>" autocomplete="off" size="2" data-articulo-id="<%= producto.getId()%>" readonly>
+                                                <a class="cart_quantity_down" href="#" data-articulo-id="<%= producto.getId()%>">-</a> 
                                             </div>
                                         </td>
                                         <td class="cart_total">
@@ -119,9 +119,10 @@
                                         </td>
                                         <td class="cart_delete">
                                             <span id="idarticulo" style="display:none;"><%= producto.getId()%> </span>
-                                            <a class="cart_quantity_delete" href="" id="deleteitem"><i class="fa fa-times"></i></a>
+                                            <button type="submit" onclick="" class="cart_quantity_delete" data-producto-id="<%= producto.getId()%>" >
+                                                <a class="cart_quantity_delete"  href="" data-producto-id="<%= producto.getId()%>"><i class="fa fa-times"></i></a>
+                                            </button>
                                         </td>
-
                                         <%      }
                                             }
                                         %>
@@ -139,15 +140,15 @@
                                 <table>
                                     <tr>
                                         <td>Sub-total <span id="txt-subtotal"></td>
-                                        <td>$ <%= total %></span></td>
+                                        <td>$ <%= total%></span></td>
                                     </tr>
                                     <tr>
                                         <td>IVA<span></td>
-                                        <td>$ <%= String.format("%.4f",total * 0.16f)%></span></td>
+                                        <td>$ <%= String.format("%.4f", total * 0.16f)%></span></td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
-                                        <td><span id="totalCompra" name="totalCompra">$ <%= String.format("%.4f",total + total * 0.16f) %></span></td>
+                                        <td><span id="totalCompra" name="totalCompra">$ <%= String.format("%.4f", total + total * 0.16f)%></span></td>
                                     </tr>
                                 </table>
                             </div>

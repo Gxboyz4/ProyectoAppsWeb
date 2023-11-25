@@ -16,6 +16,10 @@
         <servlet-name>PagarCarrito</servlet-name>
         <servlet-class>servlet.PagarCarrito</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActualizarCantidad</servlet-name>
+        <servlet-class>servlet.ActualizarCantidad</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioSesion&gt;</servlet-name>
         <url-pattern>/iniciar&gt;</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>PagarCarrito</servlet-name>
         <url-pattern>/pagarcarrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActualizarCantidad</servlet-name>
+        <url-pattern>/actualizarcantidad</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

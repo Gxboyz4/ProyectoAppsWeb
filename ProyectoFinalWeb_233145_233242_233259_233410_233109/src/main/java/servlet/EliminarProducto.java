@@ -32,11 +32,21 @@ public class EliminarProducto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         String id = request.getParameter("id");
         Integer idProducto = Integer.valueOf(id);
         ModeloProducto mp = new ModeloProducto();
-        mp.eliminarProducto(idProducto);
-        response.sendRedirect("productos_adm.jsp");
+        if(mp.eliminarProducto(idProducto)){
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Producto eliminado correctamente');");
+            out.println("window.location='productos_adm.jsp';");
+            out.println("</script>");
+        }else{
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Error al eliminar producto');");
+            out.println("window.location='productos_adm.jsp';");
+            out.println("</script>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

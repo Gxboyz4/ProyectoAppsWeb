@@ -37,15 +37,23 @@ public class ModificarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         // Variables del formulario
 
-       
+        PrintWriter out = response.getWriter();
         int idUsuario = Integer.parseInt(request.getParameter("identificador"));
         String password = request.getParameter("password");
 
         ModeloUsuario mp = new ModeloUsuario();
 
-        mp.actualizarUsuario(idUsuario, password);
-        System.out.println("Usuario actualizado " + idUsuario);
-        response.sendRedirect("usuarios_admin.jsp");
+        if(mp.actualizarUsuario(idUsuario, password)){
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Usuario actualizado correctamente');");
+            out.println("window.location='usuarios_admin.jsp';");
+            out.println("</script>");
+        }else{
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Error al actualizar usuario');");
+            out.println("window.location='usuarios_admin.jsp';");
+            out.println("</script>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -18,8 +18,8 @@
             <div class="form">
                 <img src="img/favicons/Carballo Dogos.png" alt="Logo" class="logo">
                 <form action="iniciar" method="post">
-                    <input type="email" name="correo" placeholder="Correo" required>
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="email" name="correo" placeholder="Correo" maxlength="40" required>
+                    <input type="password" name="password" placeholder="Contraseña" maxlength="30" required>
                     <button type="submit">Iniciar Sesión</button>
                     <p class="message">¿No tienes una cuenta? <a href="registro.jsp">Regístrate</a></p>
                 </form>

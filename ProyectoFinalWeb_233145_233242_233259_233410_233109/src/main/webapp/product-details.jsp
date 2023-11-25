@@ -42,6 +42,16 @@
               lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link href="css/theme.css" rel="stylesheet" />
         <link href="css/style_detalles_producto.css" rel="stylesheet" /> 
+        <script>
+            // Esta función se ejecutará cuando la página se cargue
+            window.onload = function () {
+                // Obtener referencias a los elementos del formulario
+                var cantidadInput = document.getElementById("txt-cantidad");
+                
+                // Asignar valores a los campos del formulario
+                cantidadInput.value = 1;
+            };
+        </script>
         <title>DetallesProducto</title>
 
     </head>
@@ -61,14 +71,14 @@
                             <p class="mb-0 fw-bold text-lg-center">Ubicación: <i class="fas fa-map-marker-alt text-warning mx-2"></i><span class="fw-normal">NAINARI Y TEBARI 85110 </span><span>Ciudad Obregón, Sonora, 
                                     Mexico</span></p>
                         </div>
-                        <form class="d-flex mt-4 mt-lg-0 ms-lg-auto ms-xl-0" action="iniciar" method="post">
+                        
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'acercade.jsp'"><i class="fa fa-info-circle"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'contacto.jsp'"><i class="fas fa-envelope"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'cart.jsp'"> <i class="fas fa-shopping-cart"></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'compras_usuario.jsp'"> <i class="fas fa-clipboard-list"></i></i></button>
                             <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'modificar_usuario_correo.jsp'"><i class="fas fa-user"></i> <% out.println(usuario);%></button>
-                            <button class="btn btn-white shadow-warning text-warning"  type="submit"> <i class="fas fa-sign-out-alt"></i></button>
-                        </form>
+                            <button class="btn btn-white shadow-warning text-warning"  type="button" onclick="window.location.href = 'index.jsp'"> <i class="fas fa-sign-out-alt"></i></button>
+                        
                     </div>
                 </div>
             </nav>
@@ -80,14 +90,14 @@
                             <div class="view-product text-center">
                                 <img src="img/gallery/<%=producto.getImg()%>" alt="" width="300px" height="300px" class="img-fluid mb-4" />
                                 <h2 class="display-4"><%=producto.getNombre()%></h2>
-                                <h4 class="lead">Web ID: <%=producto.getId()%></h4>
+                                <h4 class="lead">Stock: <%=producto.getStock()%></h4>
                                 <h4><%=producto.getDescripcion()%></h4>
                                 <form action="agregarproducto" method="post">
                                     <span>
                                         <span>Precio $<%=producto.getPrecio()%></span><br>
                                         <label>Cantidad:</label>
                                         <input type="hidden" value="<%=producto.getId()%>" name="idproducto">
-                                        <input type="text" value="1" id="txt-cantidad" name="cantidad"/><br>
+                                        <input type="number" id="txt-cantidad" name="cantidad" min="1"/><br>
                                         <button type="submit" class="btn btn-fefault cart">
                                             <i class="fa fa-shopping-cart"></i>
                                             Añadir al carrito
