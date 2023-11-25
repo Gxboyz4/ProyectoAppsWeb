@@ -40,8 +40,12 @@
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {
-                        window.location.href = 'productos_adm.jsp';
+                        alert("Producto eliminado correctamente");
                     }
+                    if(xhr.status !== 200){
+                        alert("Error al eliminar el producto");
+                    }
+                    window.location.href = 'productos_adm.jsp';
                 };
                 var params = "id=" + idProducto;
                 xhr.send(params);

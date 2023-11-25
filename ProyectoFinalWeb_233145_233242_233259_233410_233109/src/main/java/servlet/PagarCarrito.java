@@ -54,19 +54,46 @@ public class PagarCarrito extends HttpServlet {
         Usuario usuario = cu.getUsuarioCorreo(correo);
 
         String descripcion = "La compra fue de: ";
+        boolean compraValida = false;
+        ArrayList<Articulo> articulosActualizar = new ArrayList<>();
         if (articulos.size() > 0) {
             for (Articulo a : articulos) {
                 Producto producto = cpr.getProducto(a.getIdProducto());
-                descripcion += a.getCantidad() + " " + producto.getNombre() + "| ";
-                total += a.getCantidad() * producto.getPrecio();
+                if(producto.getStock() >= a.getCantidad()){
+                    compraValida = true;
+                }else{
+                    articulosActualizar.add(new Articulo(a.getIdProducto(), producto.getStock()));
+                    compraValida = false;
+                }
             }
-            total += (int) (total * 0.16f);
-            cp.agregarPedido(usuario.getId(), descripcion, total);
-            sesion.setAttribute("carrito", null);
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Se realizó la compra correctamente');");
-            out.println("window.location='compras_usuario.jsp';");
-            out.println("</script>");
+            if (compraValida) {
+                for (Articulo a : articulos) {
+                    ModeloProducto modelo = new ModeloProducto();
+                    Producto producto = cpr.getProducto(a.getIdProducto());
+                    modelo.actualizarProducto(producto.getId(), producto.getNombre(), producto.getPrecio(),
+                            producto.getDescripcion(), producto.getCategoria(), producto.getImg(), (producto.getStock() - a.getCantidad()));
+                    descripcion += a.getCantidad() + " " + producto.getNombre() + "| ";
+                    total += a.getCantidad() * producto.getPrecio();
+                }
+                total += (int) (total * 0.16f);
+                cp.agregarPedido(usuario.getId(), descripcion, total);
+                sesion.setAttribute("carrito", null);
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Se realizó la compra correctamente');");
+                out.println("window.location='compras_usuario.jsp';");
+                out.println("</script>");
+            } else {
+                for (Articulo articuloActualizar : articulosActualizar) {
+                    articulos.remove(articuloActualizar);
+                    if(articuloActualizar.getCantidad()!=0){
+                        articulos.add(articuloActualizar);
+                    }
+                }
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('No hay stock de algunos productos de tu carrito');");
+                out.println("window.location='cart.jsp';");
+                out.println("</script>");
+            }
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Hubo un error al realizar la compra');");

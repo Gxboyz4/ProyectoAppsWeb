@@ -40,8 +40,12 @@
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    window.location.href = 'usuarios_admin.jsp';
+                    alert("Usuario eliminado correctamente");
                 }
+                if(xhr.status !== 200){
+                    alert("Error al eliminar usuario");
+                }
+                window.location.href = 'usuarios_admin.jsp';
             };
             var params = "id=" + idUsuario;
             xhr.send(params);

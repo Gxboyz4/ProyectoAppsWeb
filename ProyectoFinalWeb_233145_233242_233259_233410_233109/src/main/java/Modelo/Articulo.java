@@ -17,6 +17,10 @@ public class Articulo {
         this.cantidad = cantidad;
     }
 
+    public Articulo(int idProducto) {
+        this.idProducto = idProducto;
+    }
+
     public int getIdProducto() {
         return idProducto;
     }
@@ -31,6 +35,28 @@ public class Articulo {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.idProducto;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Articulo other = (Articulo) obj;
+        return this.idProducto == other.idProducto;
     }
     
     

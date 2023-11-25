@@ -38,17 +38,7 @@ public class EliminarUsuario extends HttpServlet {
         String id = request.getParameter("id");
         Integer idUsuario = Integer.valueOf(id);
         ModeloUsuario mp = new ModeloUsuario();
-        if(mp.eliminarUsuario(idUsuario)){
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Usuario eliminado correctamente');");
-            out.println("window.location='usuarios_admin.jsp';");
-            out.println("</script>");
-        }else{
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Error al eliminar usuario');");
-            out.println("window.location='usuarios_admin.jsp';");
-            out.println("</script>");
-        }
+        mp.eliminarUsuario(idUsuario);
     }
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
