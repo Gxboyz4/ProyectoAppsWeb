@@ -6,9 +6,9 @@
 <%@page import="Controlador.ControladorUsuario"%>
 <%@page import="Modelo.Usuario"%>
 <% HttpSession objSesion = request.getSession(false);
-    String usuario = (String) objSesion.getAttribute("usuario");
-    if (usuario.equals("")) {
-        response.sendRedirect("index.jsp");
+    String usuario = (String) objSesion.getAttribute("correo");
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
     }
 %>
 <%

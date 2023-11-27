@@ -6,9 +6,9 @@
 <%@page import="Controlador.ControladorProducto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% HttpSession objSesion = request.getSession(false);
-    String usuario = (String) objSesion.getAttribute("usuario");
-    if (usuario.equals("")) {
-        response.sendRedirect("index.jsp");
+    String usuario = (String) objSesion.getAttribute("correo");
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
     }
 %>
 
@@ -223,7 +223,7 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
         <script src="vendors/fontawesome/all.min.js"></script>
         <script src="js/theme.js"></script>
-
+        
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;display=swap" rel="stylesheet">
     </body>
 

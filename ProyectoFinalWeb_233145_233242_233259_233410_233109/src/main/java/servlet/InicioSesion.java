@@ -39,7 +39,7 @@ public class InicioSesion extends HttpServlet {
         System.out.println("Estoy en el servlet" + correo + ": " + clave);
         if (sql.autenticacion(correo, clave)) {
             HttpSession objSesion = request.getSession(true);
-            objSesion.setAttribute("usuario", correo);
+            objSesion.setAttribute("correo", correo);
             sql = new Consultas();
             if (sql.autenticacionAdmin(correo, clave)) {
                 out.println("<script type=\"text/javascript\">");

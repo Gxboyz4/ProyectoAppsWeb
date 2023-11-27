@@ -4,6 +4,10 @@ Author     : Ángel ñ
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% HttpSession objSesion = request.getSession(false);
+    objSesion.setAttribute("correo", null);
+    objSesion.setAttribute("carrito", null);
+%>
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
     <head>
