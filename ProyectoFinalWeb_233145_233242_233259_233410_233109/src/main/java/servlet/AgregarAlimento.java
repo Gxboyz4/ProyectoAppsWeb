@@ -31,7 +31,7 @@ import java.io.PrintWriter;
 public class AgregarAlimento extends HttpServlet {
 
     private static final String CARPETA_DESTINO = 
-            "C:\\Users\\mario\\3D Objects\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
+            "C:\\Users\\julio\\OneDrive\\Escritorio\\ProyectoWebDogosCarballo\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

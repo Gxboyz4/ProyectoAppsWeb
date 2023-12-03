@@ -43,7 +43,7 @@
         <link href="css/Style_carrito.css" rel="stylesheet" />
         <script src="js/cantidadArticulo.js" type="text/javascript"></script>
     </head>
-    <body style="margin-top: 100px;">
+    <body style="margin-top: 150px;">
         <!--Contenido-->
 
         <main class="main" id="top">

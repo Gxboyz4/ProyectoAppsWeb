@@ -19,7 +19,7 @@ public class ControladorProducto {
         for (Producto producto : mp.getProductosDogos()) {
             htmlcode += "<div class=\"col-sm-6 col-md-4 col-xl mb-5 h-100\">\n"
                     + "                                                <div class=\"card card-span h-100 rounded-3\">\n"
-                    + "                                                    <img class=\"img-fluid rounded-3 h-100\" src=\"img/gallery/" + producto.getImg() + "\" alt=\"...\" />\n"
+                    + "                                                    <img class=\"img-fluid rounded-3 h-100\" src=\"img/gallery/" + producto.getImg() + "\" width=218.66 height=145.74 alt=\"...\" />\n"
                     + "                                                    <div class=\"card-body ps-0\">\n"
                     + "                                                        <h5 class=\"fw-bold text-1000 text-truncate mb-1\">" + producto.getNombre() + "</h5>\n"
                     + "                                                        <span class=\"text-1000 fw-bold\"> $ " + producto.getPrecio() + "</span>\n"
@@ -37,7 +37,7 @@ public class ControladorProducto {
         for (Producto producto : mp.getProductosBebidas()) {
             htmlcode += "<div class=\"col-sm-6 col-md-4 col-xl mb-5 h-100\">\n"
                     + "                                                <div class=\"card card-span h-100 rounded-3\">\n"
-                    + "                                                    <img class=\"img-fluid rounded-3 h-100\" src=\"img/gallery/" + producto.getImg() + "\" alt=\"...\" />\n"
+                    + "                                                    <img class=\"img-fluid rounded-3 h-100\" src=\"img/gallery/" + producto.getImg() + "\" width=218.66 height=218 alt=\"...\" />\n"
                     + "                                                    <div class=\"card-body ps-0\">\n"
                     + "                                                        <h5 class=\"fw-bold text-1000 text-truncate mb-1\">" + producto.getNombre() + "</h5>\n"
                     + "                                                        <span class=\"text-1000 fw-bold\"> $ " + producto.getPrecio() + "</span>\n"

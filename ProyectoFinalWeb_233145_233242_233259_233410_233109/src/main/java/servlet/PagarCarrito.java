@@ -44,7 +44,7 @@ public class PagarCarrito extends HttpServlet {
         HttpSession sesion = request.getSession(true);
         ArrayList<Articulo> articulos = (ArrayList) sesion.getAttribute("carrito");
 
-        String correo = (String) sesion.getAttribute("usuario");
+        String correo = (String) sesion.getAttribute("correo");
         float total = 0f;
 
         ControladorPedidos cp = new ControladorPedidos();
