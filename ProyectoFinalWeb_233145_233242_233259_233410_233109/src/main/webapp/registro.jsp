@@ -21,11 +21,11 @@ Author     : Ángel ñ
             <div class="form">
                 <img src="img/favicons/Carballo Dogos.png" alt="Logo" class="logo">
                 <form action="nuevousuario" method="post">
-                    <input type="text" name="nombre" placeholder="Nombre" maxlength="30" required>
-                    <input type="text" name="usuario" placeholder="Usuario" maxlength="30" required>
+                    <input type="text" name="nombre" placeholder="Nombre" pattern=".*[a-zA-Z].*" title="El nombre no puede contener solo números" maxlength="30" required>
+                    <input type="text" name="usuario" placeholder="Usuario" pattern=".*[a-zA-Z].*" title="El usuario no puede contener solo números" maxlength="30" required>
                     <input type="email" name="correo" placeholder="Correo Electrónico" maxlength="40" required>
-                    <input type="password" name="password" placeholder="Contraseña" maxlength="30" required>
-                    <input type="password" name="password2" placeholder="Confirmar Contraseña" maxlength="30" required>
+                    <input type="password" name="password" placeholder="Contraseña" minlength="6" maxlength="30" required>
+                    <input type="password" name="password2" placeholder="Confirmar Contraseña" minlength="6" maxlength="30" required>
                     <button type="submit">Registrarse</button>
                     <p class="message">¿Ya tienes una cuenta? <a href="login.jsp">Inicia Sesión</a></p>
                 </form>

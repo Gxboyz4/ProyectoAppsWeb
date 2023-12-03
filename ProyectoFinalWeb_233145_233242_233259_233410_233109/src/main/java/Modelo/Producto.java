@@ -17,6 +17,10 @@ public class Producto {
     private String descripcion;
     private String categoria;
 
+    public static final String CARPETA_DESTINO = "C:\\Users\\julio\\OneDrive\\Escritorio\\ProyectoWebDogosCarballo\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
+    
+    //public static final String CARPETA_DESTINO = "C:\\Users\\mario\\3D Objects\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
+    
     public Producto() {
     }
 

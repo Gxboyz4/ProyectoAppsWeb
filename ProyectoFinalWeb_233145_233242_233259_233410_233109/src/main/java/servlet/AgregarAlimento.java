@@ -30,9 +30,6 @@ import java.io.PrintWriter;
         maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class AgregarAlimento extends HttpServlet {
 
-    private static final String CARPETA_DESTINO = 
-            "C:\\Users\\julio\\OneDrive\\Escritorio\\ProyectoWebDogosCarballo\\ProyectoAppsWeb\\ProyectoFinalWeb_233145_233242_233259_233410_233109\\src\\main\\webapp\\img\\gallery\\";
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,7 +47,7 @@ public class AgregarAlimento extends HttpServlet {
         String nombre = request.getParameter("nombre");
         Part archivo = request.getPart("img");
         String nombreArchivo = getNombreArchivo(archivo);
-        String archivoDestino = CARPETA_DESTINO + nombreArchivo;
+        String archivoDestino = Producto.CARPETA_DESTINO + nombreArchivo;
 
         try (InputStream input = archivo.getInputStream(); OutputStream output = new FileOutputStream(new File(archivoDestino))) {
             byte[] buffer = new byte[1024];
